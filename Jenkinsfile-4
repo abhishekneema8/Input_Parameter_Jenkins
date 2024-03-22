@@ -12,7 +12,7 @@ pipeline{
             }
 
             steps{
-                    echo "Good Morning, $firstName"
+                    echo "Good Morning, $FIRST_NAME"
                     sh '''
                     hostname
                      cat /etc/os-release
