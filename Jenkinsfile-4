@@ -1,0 +1,23 @@
+pipeline{
+    agent none
+    stages{
+        stage('input'){
+            agent any
+            input {
+                message "What is your first Name"
+                ok "Submit"
+                parameters{
+                    string(defaultValue:'Dave',name:'FIRST_NAME',trim:true)
+                }
+            }
+
+            steps{
+                    echo "Good Morning, $firstName"
+                    sh '''
+                    hostname
+                     cat /etc/os-release
+                '''
+                }
+            }
+        }
+    }
